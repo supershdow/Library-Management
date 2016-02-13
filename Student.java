@@ -23,7 +23,7 @@ public class Student extends Borrower {
   }
   
   public String toString() {
-    String[] fields = {OSIS, offclass, grade};
+    String[] fields = {getName(), OSIS, offclass, grade};
     String write = "";
     for (String add: fields)
       write += add + ",";
@@ -50,8 +50,20 @@ public class Student extends Borrower {
    String line;
     while ((line = inputFile.readLine()) != null)
     {
-      if (line.startsWith(fullName))
-        for 
+      if (line.startsWith(fullName)){
+        String[] fields = new String[4];
+        fields[0] = line.substring(0,line.indexOf(",",line.indexOf(",")+1));
+        line = line.substring(line.indexOf(",",line.indexOf(",")+1)+1);
+        for (int i = 1; i < fields.length; i++){
+          if (line.indexOf(",") == -1){
+            fields[i] = line;
+            break;
+          }
+          fields[i] = line.substring(0,line.indexOf(","));
+          line = line.substring(line.indexOf(",") + 1);
+        }
+      return new Student(fields[0],fields[1],fields[2],fields[3]); 
+      }
     }
     return null;
   }

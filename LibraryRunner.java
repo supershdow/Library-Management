@@ -1,8 +1,9 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.io.*;
 
 public class LibraryRunner{
-  public static void main(String[] args){
+  public static void main(String[] args) throws IOException{
     Scanner scan = new Scanner(System.in);
     System.out.print("Borrower or Librarian?");
     String choice = scan.nextLine().toLowerCase();
