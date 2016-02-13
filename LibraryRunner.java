@@ -8,10 +8,12 @@ public class LibraryRunner{
     String choice = scan.nextLine().toLowerCase();
     if (choice.charAt(0) == 'b'){
       System.out.print("Student or Teacher?");
-      String choice2 = scan.nextLine().toLowerCase();
-      if (choice2.charAt(0) == 's'){
+      choice = scan.nextLine().toLowerCase();
+      if (choice.charAt(0) == 's'){
+        System.out.print("Enter your name (last, first)");
+        System.out.println(Student.findStudent(scan.nextLine().trim()));
       }
-      else if (choice2.charAt(0) == 't'){
+      else if (choice.charAt(0) == 't'){
       }
     }
     else if (choice.charAt(0) == 'l'){
@@ -19,6 +21,7 @@ public class LibraryRunner{
     }
     else
       main(args);
+    scan.close();
     
   }
 }

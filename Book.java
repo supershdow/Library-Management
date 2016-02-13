@@ -9,12 +9,13 @@ public class Book {
     status = stat;
   }
   
-  public void writeBook(){
+  public String toString(){
     String[] fields = {ISBN, bookName, author, category};
     String write = "";
     for (String add: fields)
       write += add + ",";
     write += status;
+    return write;
   }
     
 }
