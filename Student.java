@@ -41,6 +41,12 @@ public class Student extends Borrower {
     GregorianCalendar date = new GregorianCalendar();
     date.add(date.WEEK_OF_MONTH,2);
     returnDate.add(date);
+    book.borrow();
+  }
+  
+  public void removeBook(Book book){
+    returnDate.remove(borrowed.indexOf(book));
+    borrowed.remove(book);
   }
   
   public static Student findStudent(String ID) throws IOException{
@@ -69,6 +75,10 @@ public class Student extends Borrower {
   
   public boolean canBorrow(){
     return !(borrowed.size() == 2);
+  }
+  
+  public boolean hasBorrowedBooks(){
+    return !borrowed.isEmpty();
   }
   
   public ArrayList<GregorianCalendar> getReturnDate(){

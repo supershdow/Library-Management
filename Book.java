@@ -1,7 +1,9 @@
 import java.io.*;
+import java.util.ArrayList;
 
 public class Book {
   private String ISBN, bookName, author, category, status;
+  private boolean available;
   
   public Book(String ID, String bname, String auth, String cat, String stat){
     ISBN = ID;
@@ -9,6 +11,7 @@ public class Book {
     author = auth;
     category = cat;
     status = stat;
+    available = true;
   }
   
   public String toString(){
@@ -33,17 +36,18 @@ public class Book {
    return new Book(fields[0],fields[1],fields[2],fields[3],fields[4]);
  }
   
-  public static Book findBook(String title) throws IOException{
-    BufferedReader inputFile =
-                 new BufferedReader(new FileReader("Books.txt"), 1024);
-   String line;
-    while ((line = inputFile.readLine()) != null)
-    {
-      if (line.contains(title)){
-        return toBook(line);
-      }
-    }
-    return null;
+
+  
+  public boolean isAvailable(){
+    return available;
+  }
+  
+  public void borrow(){
+    available = false;
+  }
+  
+  public void handIn(){
+    available = true;
   }
     
 }

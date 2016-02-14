@@ -38,6 +38,10 @@ public class Teacher extends Borrower {
     return !(borrowed.size() == 4);
   }
   
+  public boolean hasBorrowedBooks(){
+    return borrowed.size() > 0;
+  }
+  
   public ArrayList<GregorianCalendar> getReturnDate(){
     return returnDate;
   }

@@ -20,4 +20,8 @@ public abstract class Borrower
   public abstract boolean canBorrow();
   
   public abstract ArrayList<GregorianCalendar> getReturnDate();
+  
+  public abstract boolean hasBorrowedBooks();
+  
+  
 }
