@@ -4,26 +4,13 @@ import java.util.ArrayList;
 public class Librarian 
 {
   
- public void addNewBook(Book book) throws IOException{
+ public static void addNewBook(Book book) throws IOException{
    PrintWriter outputFile =
                  new PrintWriter(new FileWriter("Book.txt"));
    outputFile.println(book);
    outputFile.close();
    System.out.println("Book added");
  }
- 
-   public static Book findBook(String info) throws IOException{
-    BufferedReader inputFile =
-                 new BufferedReader(new FileReader("Books.txt"), 1024);
-   String line;
-    while ((line = inputFile.readLine()) != null)
-    {
-      if (line.contains(info)){
-        return Book.toBook(line);
-      }
-    }
-    return null;
-  }
   
   public static ArrayList<Book> findAllBooks(String info) throws IOException{
     BufferedReader inputFile =
@@ -39,7 +26,7 @@ public class Librarian
     return bookList;
   }
  
- public void removeOldBook(Book book) throws IOException{
+ public static void removeOldBook(Book book) throws IOException{
    BufferedReader inputFile =
                  new BufferedReader(new FileReader("Book.txt"), 1024);
    PrintWriter outputFile =

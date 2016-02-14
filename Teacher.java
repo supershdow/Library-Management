@@ -45,4 +45,33 @@ public class Teacher extends Borrower {
   public ArrayList<GregorianCalendar> getReturnDate(){
     return returnDate;
   }
-}
+  
+  public static Teacher findTeacher(String info) throws IOException{
+    BufferedReader inputFile =
+                 new BufferedReader(new FileReader("Students.txt"), 1024);
+   String line;
+    while ((line = inputFile.readLine()) != null)
+    {
+      if (line.contains(info)){
+        String[] fields = new String[3];
+        fields[0] = line.substring(0,line.indexOf(",",line.indexOf(",")+1));
+        line = line.substring(line.indexOf(",",line.indexOf(",")+1)+1);
+        for (int i = 1; i < fields.length; i++){
+          if (line.indexOf(",") == -1){
+            fields[i] = line;
+            break;
+          }
+          fields[i] = line.substring(0,line.indexOf(","));
+          line = line.substring(line.indexOf(",") + 1);
+        }
+      return new Teacher(fields[0],fields[1],fields[2]); 
+      }
+    }
+    return null;
+  }
+  
+  public void removeBook(Book book){
+    returnDate.remove(borrowed.indexOf(book));
+    borrowed.remove(book);
+  }
+ }

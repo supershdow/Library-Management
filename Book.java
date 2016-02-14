@@ -36,7 +36,10 @@ public class Book {
    return new Book(fields[0],fields[1],fields[2],fields[3],fields[4]);
  }
   
-
+  public void updateStatus(String newStatus){
+    status = newStatus;
+  }
+  
   
   public boolean isAvailable(){
     return available;

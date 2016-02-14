@@ -23,5 +23,6 @@ public abstract class Borrower
   
   public abstract boolean hasBorrowedBooks();
   
+  public abstract void removeBook(Book book);
   
 }
