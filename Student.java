@@ -43,14 +43,13 @@ public class Student extends Borrower {
     returnDate.add(date);
   }
   
-  public static Student findStudent(String fullName) throws IOException{
+  public static Student findStudent(String ID) throws IOException{
     BufferedReader inputFile =
                  new BufferedReader(new FileReader("Students.txt"), 1024);
-    ArrayList<Student> students = new ArrayList<Student>();
    String line;
     while ((line = inputFile.readLine()) != null)
     {
-      if (line.startsWith(fullName)){
+      if (line.contains(ID)){
         String[] fields = new String[4];
         fields[0] = line.substring(0,line.indexOf(",",line.indexOf(",")+1));
         line = line.substring(line.indexOf(",",line.indexOf(",")+1)+1);
@@ -67,7 +66,10 @@ public class Student extends Borrower {
     }
     return null;
   }
-    
+  
+  public boolean canBorrow(){
+    return !(borrowed.size() == 2);
+  }
   
   public ArrayList<GregorianCalendar> getReturnDate(){
     return returnDate;

@@ -24,25 +24,12 @@ public class Librarian
       if (line.equals(book.toString()))
         continue;
       else
-        readBooks.add(toBook(line));
+        readBooks.add(Book.toBook(line));
     }
    for (Book toAdd: readBooks)
      outputFile.println(toAdd.toString());
     
    
- }
- 
- public Book toBook(String info){
-   String[] fields = new String[5];
-   for (int i = 0; i < 5; i++){
-     if (info.indexOf(",") == -1){
-       fields[i] = info;
-       break;
-     }
-     fields[i] = info.substring(0,info.indexOf(","));
-     info = info.substring(info.indexOf(",") + 1);
-   }
-   return new Book(fields[0],fields[1],fields[2],fields[3],fields[4]);
  }
   
 }

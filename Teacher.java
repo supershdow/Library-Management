@@ -34,6 +34,10 @@ public class Teacher extends Borrower {
     returnDate.add(date);
   }
   
+  public boolean canBorrow(){
+    return !(borrowed.size() == 4);
+  }
+  
   public ArrayList<GregorianCalendar> getReturnDate(){
     return returnDate;
   }
