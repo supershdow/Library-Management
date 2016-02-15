@@ -47,6 +47,7 @@ public class Student extends Borrower {
   public void removeBook(Book book){
     returnDate.remove(borrowed.indexOf(book));
     borrowed.remove(book);
+    book.handIn();
   }
   
   public static Student findStudent(String ID) throws IOException{
@@ -83,6 +84,10 @@ public class Student extends Borrower {
   
   public ArrayList<GregorianCalendar> getReturnDate(){
     return returnDate;
+  }
+  
+  public String getID(){
+    return OSIS;
   }
   
 }

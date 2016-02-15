@@ -14,7 +14,6 @@ public abstract class Borrower
     return name;
   }
   
-  
   public abstract void borrowBook(Book book);
   
   public abstract boolean canBorrow();
@@ -24,5 +23,7 @@ public abstract class Borrower
   public abstract boolean hasBorrowedBooks();
   
   public abstract void removeBook(Book book);
+  
+  public abstract String getID();
   
 }

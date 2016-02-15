@@ -4,26 +4,30 @@ import java.util.ArrayList;
 public class Book {
   private String ISBN, bookName, author, category, status;
   private boolean available;
+  private ArrayList<String> borrowerIDs;
   
-  public Book(String ID, String bname, String auth, String cat, String stat){
+  public Book(String ID, String bname, String auth, String cat, String stat) throws IOException{
     ISBN = ID;
     bookName = bname;
     author = auth;
     category = cat;
     status = stat;
     available = true;
+    borrowerIDs = new ArrayList<String>();
+    loadPreviousBorrowers();
   }
   
   public String toString(){
-    String[] fields = {ISBN, bookName, author, category};
+    String[] fields = {ISBN, bookName, author, category, status};
     String write = "";
     for (String add: fields)
       write += add + ",";
-    write += status;
-    return write;
+    for (String id: borrowerIDs)
+      write += id + ",";
+    return write.substring(0, write.length() - 1);
   }
   
-  public static Book toBook(String info){
+  public static Book toBook(String info) throws IOException{
    String[] fields = new String[5];
    for (int i = 0; i < 5; i++){
      if (info.indexOf(",") == -1){
@@ -51,6 +55,38 @@ public class Book {
   
   public void handIn(){
     available = true;
+  }
+  
+  public void loadPreviousBorrowers() throws IOException{
+    BufferedReader inputFile =
+                 new BufferedReader(new FileReader("Books.txt"), 1024);
+    String line;
+    while ((line = inputFile.readLine()) != null)
+    {
+      if (line.contains(ISBN)){
+        ArrayList<String> users = new ArrayList<String>();
+        for (int i = 0; i < line.length(); i++)
+          if (line.charAt(i) == ','){
+          users.add(line.substring(0,i));
+          line = line.substring(i+1);
+          i = 0;
+        }
+        for (int i = 7; i < users.size(); i++){
+          if (Student.findStudent(users.get(i)) != null)
+            borrowerIDs.add(Student.findStudent(users.get(i)).getID());
+          else if (Teacher.findTeacher(users.get(i)) != null)
+            borrowerIDs.add(Teacher.findTeacher(users.get(i)).getID());
+        }
+      }
+    }
+    
+  }
+  
+  public ArrayList<Student> getBorrowHistory() throws IOException{
+    ArrayList<Student> borrowers = new ArrayList<Student>();
+    for (String ID: borrowerIDs)
+      borrowers.add(Student.findStudent(ID));
+    return borrowers;
   }
     
 }

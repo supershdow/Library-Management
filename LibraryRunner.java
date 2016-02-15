@@ -80,7 +80,8 @@ public class LibraryRunner{
         update.updateStatus(scan.nextLine());
       }
       else if (choice.charAt(0) == 'c'){
-        
+        System.out.print("Enter the ISBN or name of the book");
+        System.out.println(Librarian.findAllBooks(scan.nextLine()).get(0).getBorrowHistory());
       }
     }
     else

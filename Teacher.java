@@ -32,6 +32,7 @@ public class Teacher extends Borrower {
     GregorianCalendar date = new GregorianCalendar();
     date.add(date.WEEK_OF_MONTH,1);
     returnDate.add(date);
+    book.borrow();
   }
   
   public boolean canBorrow(){
@@ -73,5 +74,10 @@ public class Teacher extends Borrower {
   public void removeBook(Book book){
     returnDate.remove(borrowed.indexOf(book));
     borrowed.remove(book);
+    book.handIn();
+  }
+  
+  public String getID(){
+    return ID;
   }
  }

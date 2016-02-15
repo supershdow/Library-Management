@@ -6,7 +6,7 @@ public class Librarian
   
  public static void addNewBook(Book book) throws IOException{
    PrintWriter outputFile =
-                 new PrintWriter(new FileWriter("Book.txt"));
+                 new PrintWriter(new FileWriter("Books.txt"));
    outputFile.println(book);
    outputFile.close();
    System.out.println("Book added");
