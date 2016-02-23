@@ -6,6 +6,7 @@ public class Book {
   private boolean available;
   private ArrayList<String> borrowerIDs;
   
+  //Constructor for a Book object  
   public Book(String ID, String bname, String auth, String cat, String stat) throws IOException{
     ISBN = ID;
     bookName = bname;
@@ -17,6 +18,7 @@ public class Book {
     loadPreviousBorrowers();
   }
   
+  //Method to convert something to strings
   public String toString(){
     String[] fields = {ISBN, bookName, author, category, status};
     String write = "";
@@ -40,19 +42,22 @@ public class Book {
    return new Book(fields[0],fields[1],fields[2],fields[3],fields[4]);
  }
   
+  //Method to change a book's status
   public void updateStatus(String newStatus){
     status = newStatus;
   }
   
-  
+  //Checks if a book is available
   public boolean isAvailable(){
     return available;
   }
   
+  //If a user wants to borrow a book, the book's availability status is changed to unavailable
   public void borrow(){
     available = false;
   }
   
+  //If a user wants to return a book, the book's availability status is changed to available
   public void handIn(){
     available = true;
   }
@@ -81,6 +86,7 @@ public class Book {
     }
     
   }
+  
   
   public ArrayList<Student> getBorrowHistory() throws IOException{
     ArrayList<Student> borrowers = new ArrayList<Student>();
