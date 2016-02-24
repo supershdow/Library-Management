@@ -1,0 +1,10 @@
+9781438114545,The Great Gatsby,F. Scott Fitzgerald,Novel,Good
+9781580493895,The Odyssey,Homer,Epic,Old
+9781781100486,Harry Potter and the Sorcerer's Stone,J. K. Rowling,Fiction,New
+9781101653678,Charlie and the Chocolate Factory,Roald Dahl,Fiction,Bad
+9780547420295,The Things They Carried,Tim O'Brien,Short Stories,Old
+9780486111537,The Jungle,Upton Sinclair,Fiction,Good
+9780307267450,The Road,Cormac McCarthy,Fiction,Bad
+9780151351015,Ninteen Eighty-Four,George Orwell,Fiction,Good
+9780795311253,Brave New World,Aldous Huxley,Science Fiction,Bad
+9780606315807,Hamlet,William Shakespeare,Drama,Old
