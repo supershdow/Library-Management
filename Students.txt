@@ -1,4 +1,4 @@
-Hofing,Benji,238123251,11,C07
+Hofing,Benji,238123251,11,C07,9781438114545,The Great Gatsby,F. Scott Fitzgerald,Novel,Good,[java.util.GregorianCalendar[time=1458437000125,areFieldsSet=true,areAllFieldsSet=true,lenient=true,zone=sun.util.calendar.ZoneInfo[id="America/New_York",offset=-18000000,dstSavings=3600000,useDaylight=true,transitions=235,lastRule=java.util.SimpleTimeZone[id=America/New_York,offset=-18000000,dstSavings=3600000,useDaylight=true,startYear=0,startMode=3,startMonth=2,startDay=8,startDayOfWeek=1,startTime=7200000,startTimeMode=0,endMode=3,endMonth=10,endDay=1,endDayOfWeek=1,endTime=7200000,endTimeMode=0]],firstDayOfWeek=1,minimalDaysInFirstWeek=1,ERA=1,YEAR=2016,MONTH=2,WEEK_OF_YEAR=12,WEEK_OF_MONTH=3,DAY_OF_MONTH=19,DAY_OF_YEAR=79,DAY_OF_WEEK=7,DAY_OF_WEEK_IN_MONTH=3,AM_PM=1,HOUR=9,HOUR_OF_DAY=21,MINUTE=23,SECOND=20,MILLISECOND=125,ZONE_OFFSET=-18000000,DST_OFFSET=3600000]]
 Bao,Ricky,206134389,11,C17
 Doe,John,296584321,10,B08
 Agustin,Darius,211589648,12,D10

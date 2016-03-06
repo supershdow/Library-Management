@@ -25,8 +25,10 @@ public class LibraryRunner{
           else{
             System.out.print("Enter the ISBN of book you would like to borrow");
             choice = scan.nextLine();
-            if (Librarian.findAllBooks(choice).get(0).isAvailable())
+            if (Librarian.findAllBooks(choice).get(0).isAvailable()){
               current.borrowBook(Librarian.findAllBooks(choice).get(0));
+              System.out.println("Book borrowed");
+            }
           }
         }
         else if (choice.charAt(0) == 'r'){

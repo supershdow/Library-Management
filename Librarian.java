@@ -23,6 +23,7 @@ public class Librarian
         bookList.add(Book.toBook(line));
       }
     }
+    inputFile.close();
     return bookList;
   }
  
@@ -42,6 +43,8 @@ public class Librarian
     }
    for (Book toAdd: readBooks)
      outputFile.println(toAdd.toString());
+   inputFile.close();
+   outputFile.close();
    System.out.println("Book removed");
  }
   

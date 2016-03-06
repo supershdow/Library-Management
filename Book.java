@@ -64,26 +64,15 @@ public class Book {
   
   public void loadPreviousBorrowers() throws IOException{
     BufferedReader inputFile =
-                 new BufferedReader(new FileReader("Books.txt"), 1024);
+                 new BufferedReader(new FileReader("Students.txt"), 1024);
     String line;
     while ((line = inputFile.readLine()) != null)
     {
       if (line.contains(ISBN)){
-        ArrayList<String> users = new ArrayList<String>();
-        for (int i = 0; i < line.length(); i++)
-          if (line.charAt(i) == ','){
-          users.add(line.substring(0,i));
-          line = line.substring(i+1);
-          i = 0;
-        }
-        for (int i = 7; i < users.size(); i++){
-          if (Student.findStudent(users.get(i)) != null)
-            borrowerIDs.add(Student.findStudent(users.get(i)).getID());
-          else if (Teacher.findTeacher(users.get(i)) != null)
-            borrowerIDs.add(Teacher.findTeacher(users.get(i)).getID());
-        }
+        borrowerIDs.add(Student.findStudent(line.substring(0,line.indexOf(',',line.indexOf(',')))).getID());
       }
     }
+    inputFile.close();
     
   }
   

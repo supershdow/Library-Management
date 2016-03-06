@@ -16,14 +16,22 @@ public class Teacher extends Borrower {
   }
   
   public void toFile() throws IOException{
+        BufferedReader inputFile =
+                 new BufferedReader(new FileReader("Teachers.txt"), 1024);
+    ArrayList<String> teachers = new ArrayList<String>();
+    String line;
+    while ((line = inputFile.readLine()) != null){
+      if (toString().contains(line))
+        teachers.add(toString());
+      else
+        teachers.add(line);
+    }
     PrintWriter outputFile =
                  new PrintWriter(new FileWriter("Teachers.txt"));
-    String[] fields = {teacherName, ID};
-    String write = "";
-    for (String add: fields)
-      write += add + ",";
-    write += returnDate.toString();
-    outputFile.println(write);
+    for (String add: teachers)
+      outputFile.println(add);
+    inputFile.close();
+    outputFile.close();
     
   }
   

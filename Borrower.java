@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
+import java.io.*;
 
 public abstract class Borrower
 {
@@ -14,7 +15,7 @@ public abstract class Borrower
     return name;
   }
   
-  public abstract void borrowBook(Book book);
+  public abstract void borrowBook(Book book) throws IOException;
   
   public abstract boolean canBorrow();
   

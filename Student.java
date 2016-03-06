@@ -17,30 +17,43 @@ public class Student extends Borrower {
   }
   
   public void toFile() throws IOException{
+    BufferedReader inputFile =
+                 new BufferedReader(new FileReader("Students.txt"), 1024);
+    ArrayList<String> students = new ArrayList<String>();
+    String line;
+    while ((line = inputFile.readLine()) != null){
+      if (toString().contains(line))
+        students.add(toString());
+      else
+        students.add(line);
+    }
     PrintWriter outputFile =
                  new PrintWriter(new FileWriter("Students.txt"));
-    outputFile.println(toString());
+    for (String add: students)
+      outputFile.println(add);
+    inputFile.close();
+    outputFile.close();
   }
   
   public String toString() {
-    String[] fields = {getName(), OSIS, offclass, grade};
+    String[] fields = {getName(), OSIS, grade, offclass};
     String write = "";
     for (String add: fields)
       write += add + ",";
     for (int i = 0; i < borrowed.size(); i++){
       write += borrowed.get(i) + "," + returnDate.toString();
       if (borrowed.size() == 2)
-        write+=",";
+        write += ",";
     }
-    
     return write;
   }
   
-  public void borrowBook(Book book){
+  public void borrowBook(Book book) throws IOException{
     borrowed.add(book);
     GregorianCalendar date = new GregorianCalendar();
     date.add(date.WEEK_OF_MONTH,2);
     returnDate.add(date);
+    this.toFile();
     book.borrow();
   }
   
@@ -71,6 +84,7 @@ public class Student extends Borrower {
       return new Student(fields[0],fields[1],fields[2],fields[3]); 
       }
     }
+    inputFile.close();
     return null;
   }
   
@@ -88,6 +102,14 @@ public class Student extends Borrower {
   
   public String getID(){
     return OSIS;
+  }
+  
+  public String getHomeRoom(){
+    return offclass;
+  }
+  
+  public String getGrade(){
+    return grade;
   }
   
 }
